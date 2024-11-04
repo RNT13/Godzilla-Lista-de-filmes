@@ -1,0 +1,55 @@
+@use 'var';
+@use 'sass:color';
+
+.era {
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    background: var.$bg2color;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translate(10%);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+
+    &.visible {
+        opacity: 1;
+        transform: translate(0);
+    }
+
+    h2 {
+        color: var.$txt3color;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        border-bottom: 2px solid currentColor;
+        padding-bottom: 0.5rem;
+    }
+
+    .movie__list {
+        list-style: none;
+
+        &__item {
+            padding: 1rem;
+            margin: 1rem 0;
+            background: var.$bg4color;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+
+            &:hover {
+                background-color: color.scale(var.$bg3color, $lightness: 10%);
+                transform: translateX(10px);
+                color: var.$txt1color;
+                cursor: pointer;
+            }
+        }
+
+        &__year {
+            color: var.$txt3color;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 10px;
+    }
+}

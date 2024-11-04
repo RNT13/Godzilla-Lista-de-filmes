@@ -1,0 +1,94 @@
+@use 'var';
+@use 'sass:color';
+@use 'header';
+@use 'nav';
+@use 'eras';
+@use 'footer';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+main {
+    background-color: var.$bg2color;
+}
+
+.txt {
+    color: var.$txt3color;
+    font-weight: bold;
+}
+
+.container {
+    width: 940px;
+    max-width: 100%;
+    margin: 24px auto;
+
+    @media (max-width: 768px) {
+        max-width: 83%;
+    }
+    
+    @media (min-width: 769px) and (max-width: 1023px) {
+        max-width: 80%; 
+    }
+}
+
+.button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: var.$bg1color;
+    color: var.$txt1color;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 5px;
+    margin: 10px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    
+    &--fire::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, var.$btn1color, var.$btn2color);
+        transition: top 0.3s;
+        z-index: -1;
+    }
+    
+    &--fire:hover {
+        transform: translateY(-3px);
+        color: var.$txt1color;
+        text-shadow: 0 0 5px var.$txt1color;
+    }
+
+    &--fire:hover::before {
+        top: 0;
+    }
+
+    @media (max-width: 768px) {
+        padding: 10px;
+        width: 100%;
+    }
+
+    @media (min-width: 769px) and (max-width: 1023px) {
+        margin: 4px;
+        font-size: 12px;
+    }
+
+    @media (max-width: 1024px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

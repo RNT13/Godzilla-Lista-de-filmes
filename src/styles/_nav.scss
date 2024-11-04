@@ -1,0 +1,15 @@
+@use 'var';
+
+.nav {
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        align-items: center;
+    }
+}

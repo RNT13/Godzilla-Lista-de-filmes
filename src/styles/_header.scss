@@ -1,0 +1,23 @@
+@use 'var';
+
+@keyframes flicker {
+    0% { text-shadow: 0 0 5px var.$txt3color; }
+    50% { text-shadow: 0 0 20px var.$txt3color, 0 0 30px var.$btn1color; }
+    100% { text-shadow: 0 0 5px var.$txt3color; }
+}
+
+.header {
+    padding: 2rem;
+    text-align: center;
+    background: var.$bg2color;
+    
+    
+    &__logo {
+        animation: flicker 2s infinite;
+        font-size: 50px;
+
+        @media (max-width: 768px) {
+            font-size: 30px;
+        }
+    }
+}
